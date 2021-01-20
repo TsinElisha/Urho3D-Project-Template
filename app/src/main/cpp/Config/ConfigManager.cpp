@@ -41,6 +41,13 @@ ConfigManager::ConfigManager(Context* context, const String& defaultFileName, bo
     Load();
 }
 
+ConfigManager::~ConfigManager() noexcept {
+    for (SettingsMap::Iterator itr(map_.Begin()); itr != map_.End(); ++itr){
+        SettingsMap *ptr = (SettingsMap *)itr->second_.GetVoidPtr();
+        if (ptr) delete ptr;
+    }
+}
+
 void ConfigManager::RegisterObject(Context* context) {
     context->RegisterFactory<ConfigManager>();
 }
