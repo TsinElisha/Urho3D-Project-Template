@@ -40,7 +40,7 @@ URHO3D_OBJECT(ConfigManager, Urho3D::Object);
 public:
 
     ConfigManager(Urho3D::Context* context, const Urho3D::String& defaultFileName = "Data/Config/config.cfg", bool caseSensitive = false, bool saveDefaultParameters = true);
-    ~ConfigManager() override = default;;
+    ~ConfigManager();
 
     static void RegisterObject(Urho3D::Context* context);
 
